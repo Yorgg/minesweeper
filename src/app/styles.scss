@@ -1,0 +1,77 @@
+html {
+  @import url('https://fonts.googleapis.com/css?family=Roboto:900');
+  font-family: 'Roboto';
+  font-size: 16px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+}
+
+$clr-bg:       white;
+$clr-bg-drk:   silver;
+$clr-bg-drker: #999;
+
+.square {
+  width: 26px;
+  height: 26px; 
+  display: flex;
+  font-weight: 600;
+  align-items: center;
+  background: $clr-bg-drk;
+  justify-content: center;
+  border-left: 1px solid $clr-bg-drker;
+  border-top:  1px solid $clr-bg-drker;
+}
+
+.square-is-exploded {
+  background: red !important;
+}
+
+.square--not-swept {
+  background: silver;
+  border-left:   3px solid $clr-bg;
+  border-top:    3px solid $clr-bg;
+  border-right:  3px solid $clr-bg-drker;
+  border-bottom: 3px solid $clr-bg-drker;
+
+  &:active {
+    border-left:   1px solid $clr-bg-drker;
+    border-bottom: 1px solid $clr-bg-drker;
+    border-top: 0px;
+    border-right: 0px;
+  }
+}
+
+.square--mine {
+  &:after {
+    content: "*";
+  }
+}
+
+$mines: 8;
+$colors-list: blue green red navy teal purple gold;
+
+@each $clr in $colors-list  {
+  $i:  index($colors-list, $clr);
+  .safe-square--#{$i} {
+    color: $clr;
+    &:after {
+      content: "#{$i}"
+    }
+  }
+}
+
+
