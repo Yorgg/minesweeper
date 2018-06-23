@@ -1,10 +1,11 @@
 import Square from "./../square"
 
 class MineSquare extends Square {
-  constructor(handler) {
+  constructor(sweepHandler, flagHandler) {
     super()
     this.classes      = ["square--mine"]
-    this.sweepHandler = handler
+    this.sweepHandler = sweepHandler
+    this.flagHandler  = flagHandler
     this.type         = "mine"
     this.isSwept      = false
     this.isFlagged    = false

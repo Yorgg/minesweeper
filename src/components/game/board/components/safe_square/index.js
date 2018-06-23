@@ -1,12 +1,12 @@
 import Square from "./../square"
 
 class SafeSquare extends Square {
-
-  constructor(handler, n) {
+  constructor(sweepHandler, flagHandler, n) {
     super()
     this.val = n
     this.classes = [`safe-square--${n}`]
-    this.sweepHandler = handler
+    this.sweepHandler = sweepHandler
+    this.flagHandler  = flagHandler
     this.type         = "safe"
     this.isSwept      = false
     this.isFlagged    = false

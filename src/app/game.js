@@ -8,24 +8,33 @@ class Game {
     this.over = false
     this.settings = { 
       ...{
-        width:  20, 
-        height: 20, 
-        mines:  39,
+        width:  9, 
+        height: 9, 
+        mines:  9,
       }, 
       ...settings 
     }
 
+    const height = this.settings.height
+    const width  = this.settings.width
+
+    if (this.settings.mines >= height*width) {
+      throw "error: too many mines"
+    }
+   
+
+    this.remainingSweeps = width*height-this.settings.mines
+
     const squares = createInitialSquares(
       this,
-      this.settings.height, 
-      this.settings.width
+      height,
+      width
     )
 
-    this.node = document.createElement("div")
-    this.node.style.width  = this.settings.width*26
-    this.node.style.height = this.settings.height*26
-
     this.board = new Board(squares)
+    this.node = document.createElement("div")
+    this.node.style.width  = width*26
+    this.node.style.height = height*26
   }
 
   render() {

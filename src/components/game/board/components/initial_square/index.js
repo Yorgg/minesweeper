@@ -4,7 +4,7 @@ class InitialSquare extends Square {
 
   constructor(handler) {
     super()
-    this.classes = ["initial-square"]
+    this.classes      = ["initial-square"]
     this.sweepHandler = handler
     this.type         = "initial"
     this.isSwept      = false

@@ -1,26 +1,21 @@
-import Board from "./../components/game/board"
-import updateSweptState from "./update_swept_state.js"
+import sweeper from "./sweeper.js"
+import handleLoss from "./handle_loss.js"
+import handleWin  from "./handle_win.js"
 
 const sweepHandler = game => coordinate => event => {
   const [r,c] = coordinate
+  const square = game.board.squares[r][c]
 
-  // game over man, game over.
+  if (square.isFlagged) return
   if (game.over) return
-  if (game.board.squares[r][c].type == "mine") {
-    game.board.squares.forEach(r => { 
-      r.forEach(square => {
-        if (square.type === "mine") 
-          square.isSwept = true
-      })
-    })
 
-    game.board.squares[r][c].classes.push("square-is-exploded")
-    game.board.render()
-    game.over = true
-    return
+  if (square.type === "mine") {
+    handleLoss(game, square)
+  } else {
+    sweeper(coordinate, game)
+    if (game.remainingSweeps === 0) handleWin(game) 
   }
 
-  updateSweptState([r,c], game.board.squares)
   game.board.render()
 }
 

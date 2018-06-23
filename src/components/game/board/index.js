@@ -1,7 +1,7 @@
 export default class Board {
   constructor(board) {
     this.squares = board 
-    this.node = document.createElement("div")
+    this.node    = document.createElement("div")
   }
 
   render() {

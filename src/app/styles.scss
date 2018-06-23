@@ -40,6 +40,13 @@ $clr-bg-drker: #999;
   background: red !important;
 }
 
+.square--flagged {
+  font-size: 0.7rem;
+  &:after {
+    content: "🚩"
+  }
+}
+
 .square--not-swept {
   background: silver;
   border-left:   3px solid $clr-bg;
@@ -56,8 +63,9 @@ $clr-bg-drker: #999;
 }
 
 .square--mine {
+  font-size: 0.8rem;
   &:after {
-    content: "*";
+    content: "💣 ";
   }
 }
 
