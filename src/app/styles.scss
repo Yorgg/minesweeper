@@ -7,9 +7,8 @@ html {
 body {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
   margin: 0;
+  padding-top: 30px;
 }
 
 * {
@@ -20,9 +19,22 @@ body {
   display: flex;
 }
 
-$clr-bg:       white;
-$clr-bg-drk:   silver;
-$clr-bg-drker: #999;
+$clr-bg:        white;
+$clr-bg-drk:    silver;
+$clr-bg-drker:  #999;
+$clr-secondary: blue;
+
+.top-menu {
+  margin-bottom: 14px;
+  span {
+    cursor: pointer;
+    margin-right: 12px;
+    &:hover {
+      color: $clr-secondary;
+      text-decoration: underline;
+    }
+  }
+}
 
 .square {
   width: 26px;

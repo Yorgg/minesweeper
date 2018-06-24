@@ -1,5 +1,6 @@
 import "./styles.scss"
 import Board from "./../components/game/board"
+import TopMenu from "./../components/game/top_menu"
 import createInitialSquares from "./create_initial_squares.js"
 
 class Game {
@@ -21,7 +22,6 @@ class Game {
     if (this.settings.mines >= height*width) {
       throw "error: too many mines"
     }
-   
 
     this.remainingSweeps = width*height-this.settings.mines
 
@@ -31,15 +31,19 @@ class Game {
       width
     )
 
+    this.topMenu = new TopMenu(settings => (new Game(settings)).render())
     this.board = new Board(squares)
-    this.node = document.createElement("div")
-    this.node.style.width  = width*26
-    this.node.style.height = height*26
+    this.node  = document.createElement("div")
   }
 
   render() {
     const body = document.getElementsByTagName("body")[0]
     body.innerHTML = ""
+
+    this.node.style.width  = this.settings.width*26
+    this.node.style.height = this.settings.height*26
+
+    this.node.appendChild(this.topMenu.render())
     this.node.appendChild(this.board.render())
     body.appendChild(this.node)
   }
