@@ -1,9 +1,9 @@
-// import  from './handlers'
-import Game from "./game.js"
+import "./styles.scss"
+import Game from "./../components/game"
 
-// Initialize game and print to dom
 export const initialize = () => {
-  const game = new Game()
+  const containerNode = document.getElementsByTagName("body")[0]
+  const game = new Game(containerNode)
   game.render()
 }
 

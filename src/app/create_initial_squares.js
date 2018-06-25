@@ -1,7 +1,7 @@
 
 // game => coordinate => event => fnc
 import firstSweepHandler from "./first_sweep_handler.js"
-import InitialSquare from "./../components/game/board/components/initial_square"
+import InitialSquare from "./../components/game/components/board/components/initial_square"
 
 function createInitialSquares(game,h,w) {
   const matrix = []

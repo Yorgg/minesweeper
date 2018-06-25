@@ -2,8 +2,8 @@ import { compose } from "ramda"
 import sweepHandler from "./sweep_handler.js"
 import flagHandler from "./flag_handler.js"
 import nearbyMineCount from "./../utilities/nearby_mine_count.js"
-import MineSquare from "./../components/game/board/components/mine_square"
-import SafeSquare from "./../components/game/board/components/safe_square"
+import MineSquare from "./../components/game/components/board/components/mine_square"
+import SafeSquare from "./../components/game/components/board/components/safe_square"
 import createMineCoordinates from "./../utilities/create_mine_coordinates.js"
 
 const firstSweepHandler = game => coordinate => event => {
